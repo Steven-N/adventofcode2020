@@ -10,14 +10,11 @@ def compute(data):
         nums.add(n)
     for num in nums:
         if 2020 - num in nums:
-            return num * (2020-num)
+            return num * (2020 - num)
 
 
 @pytest.mark.parametrize(
-    ("test_input,expected"),
-    [
-        ("1721 979 366 299 675 1456", 514579)
-    ]
+    ("test_input,expected"), [("1721 979 366 299 675 1456", 514579)]
 )
 def test(test_input, expected):
     assert compute(test_input) == expected
@@ -25,10 +22,10 @@ def test(test_input, expected):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('file')
+    parser.add_argument("file")
     args = parser.parse_args()
 
-    with open(args.file, 'r') as f:
+    with open(args.file, "r") as f:
         print(compute(f.read()))
 
 
