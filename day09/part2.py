@@ -14,7 +14,6 @@ def compute(data, preamble):
     for idx_i, i in enumerate(data_i[preamble:]):
         preamble_l = data_i[p_s:p_e]
         found = False
-        # preamble_sum = sum(preamble_l)
 
         for idx, num in enumerate(preamble_l):
             if i - num in preamble_l[idx + 1 :]:  # noqa: E203
