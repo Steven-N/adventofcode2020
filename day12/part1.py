@@ -2,7 +2,7 @@ import argparse
 import pytest
 
 
-def calculate_direction(cur_pos, action, units, directions):
+def calculate_direction(action, units, directions):
 
     opposite_dirs = {"N": "S", "S": "N", "E": "W", "W": "E"}
 
@@ -20,14 +20,9 @@ def calculate_direction(cur_pos, action, units, directions):
 
 def compute(data):
 
-    north = 0
-    south = 0
-    east = 0
-    west = 0
-
     dirs = ["N", "E", "S", "W"]
 
-    directions = {"N": north, "S": south, "E": east, "W": west}
+    directions = {"N": 0, "S": 0, "E": 0, "W": 0}
 
     cur_pos = 90
 
@@ -37,7 +32,7 @@ def compute(data):
 
         if action == "F":
             direction = dirs[int((cur_pos / 90) % 4)]
-            calculate_direction(cur_pos, direction, units, directions)
+            calculate_direction(direction, units, directions)
 
         elif action == "R":
             cur_pos += units
@@ -46,7 +41,7 @@ def compute(data):
             cur_pos -= units
 
         elif action in dirs:
-            calculate_direction(cur_pos, action, units, directions)
+            calculate_direction(action, units, directions)
 
     return sum(directions.values())
 
