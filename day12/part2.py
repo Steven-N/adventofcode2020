@@ -18,11 +18,12 @@ def calculate_waypoint_move(action, units, w_x, w_y):
         w_y += units
     elif action == "S":
         w_y -= units
-
-    if action == "E":
+    elif action == "E":
         w_x += units
     elif action == "W":
         w_x -= units
+    else:
+        raise NotImplementedError(f"Action '{action}' not recognized.")
 
     return (w_x, w_y)
 
