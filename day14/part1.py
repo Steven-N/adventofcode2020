@@ -3,7 +3,7 @@ import pytest
 import collections
 import re
 
-mem_match = re.compile(r"^mem\[(\d+)\] = (\d+)")
+mem_match = re.compile(r"^mem\[(\d+)\] = (\d+)$")
 
 
 def compute(data):
